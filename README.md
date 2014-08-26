@@ -4,7 +4,7 @@
 
 Add this line to your application's Gemfile:
 
-    gem 'wechat-auth_client', github: 'git://github.com/zhangyuan/wechat-auth_client'
+    gem 'wechat-auth_client', git: 'https://github.com/zhangyuan/wechat-auth_client'
 
 And then execute:
 
