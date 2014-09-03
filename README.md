@@ -1,5 +1,7 @@
 # Wechat::AuthClient
 
+[![Build Status](https://travis-ci.org/zhangyuan/wechat-auth_client.svg?branch=master)](https://travis-ci.org/zhangyuan/wechat-auth_client)
+
 ## Installation
 
 Add this line to your application's Gemfile:
