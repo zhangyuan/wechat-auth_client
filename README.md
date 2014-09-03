@@ -17,8 +17,7 @@ And then execute:
 ```ruby
 class SessionsController < ApplicationController
   def auth
-    client = Wechat::AuthClient.new(APP_ID, APP_SECRET)
-    client.authorize_url(REDIRECT_URL, state)
+    redirect_to auth_client.authorize_url(REDIRECT_URL, state)
   end
 
   def callback
@@ -31,6 +30,10 @@ class SessionsController < ApplicationController
 
   private
 
+  def auth_client
+    @auth_client ||= Wechat::AuthClient.new(APP_ID, APP_SECRET)
+  end
+  
   def state
     session[:state] ||= SecureRandom.hex(3)
   end
