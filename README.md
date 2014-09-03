@@ -18,15 +18,14 @@ And then execute:
 class SessionsController < ApplicationController
   def auth
     client = Wechat::AuthClient.new(APP_ID, APP_SECRET)
-    
-    
     client.authorize_url(REDIRECT_URL, state)
   end
 
   def callback
     if state = params[:state]
       access_token = auth_client.get_token(params[:code])
-      # do something with access_token
+      # do something with access_token. 
+      # for example, call access_token.openid to get openid
     end
   end
 
