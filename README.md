@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def callback
-    if state = params[:state]
+    if state == params[:state]
       access_token = auth_client.get_token(params[:code])
       # do something with access_token. 
       # for example, call access_token.openid to get openid
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
   private
 
   def state
-    session[:state] = SecureRandom.hex(3)
+    session[:state] ||= SecureRandom.hex(3)
   end
 end
 ```
