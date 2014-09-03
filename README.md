@@ -12,7 +12,31 @@ And then execute:
 
 ## Usage
 
-TODO: Write usage instructions here
+> `REDIRECT_URL` should be configured in WeChat management system and route to callback action
+
+```ruby
+class SessionsController < ApplicationController
+  def auth
+    client = Wechat::AuthClient.new(APP_ID, APP_SECRET)
+    
+    
+    client.authorize_url(REDIRECT_URL, state)
+  end
+
+  def callback
+    if state = params[:state]
+      access_token = auth_client.get_token(params[:code])
+      # do something with access_token
+    end
+  end
+
+  private
+
+  def state
+    session[:state] = SecureRandom.hex(3)
+  end
+end
+```
 
 ## Contributing
 
